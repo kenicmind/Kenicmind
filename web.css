@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Visual Masterpieces | Graphic Design Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #002F90;
+            --orange: #FF6600;
+            --light: #f7f7f7;
+            --dark: #222;
+            --radius: 8px;
+        }
+        body {
+            margin: 0;
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: var(--light);
+            color: var(--dark);
+        }
+        header {
+            background: var(--navy);
+            color: #fff;
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: var(--orange);
+        }
+        .hero {
+            background: linear-gradient(90deg, var(--navy) 70%, var(--orange) 100%);
+            color: #fff;
+            padding: 4rem 2rem 3rem 2rem;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .hero button {
+            background: var(--orange);
+            color: #fff;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            transition: background 0.2s;
+        }
+        .hero button:hover {
+            background: #e65c00;
+        }
+        section {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .intro {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .featured-projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .project-card {
+            background: #fff;
+            border-radius: var(--radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            padding: 1rem;
+            text-align: center;
+            transition: box-shadow 0.2s;
+        }
+        .project-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        }
+        .project-card img {
+            width: 100%;
+            border-radius: var(--radius);
+            margin-bottom: 1rem;
+            height: 160px;
+            object-fit: cover;
+        }
+        .testimonials {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        .testimonial {
+            background: #fff;
+            border-radius: var(--radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            padding: 1rem;
+            max-width: 320px;
+            text-align: left;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        .testimonial img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .testimonial-details {
+            flex: 1;
+        }
+        .testimonial-details strong {
+            color: var(--navy);
+            font-size: 1rem;
+        }
+        .testimonial-details span {
+            font-size: 0.95rem;
+            color: var(--orange);
+        }
+        /* Portfolio Gallery */
+        .portfolio-filters {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .portfolio-filters button {
+            background: var(--navy);
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            margin: 0 0.5rem;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-weight: 700;
+            transition: background 0.2s;
+        }
+        .portfolio-filters button.active,
+        .portfolio-filters button:hover {
+            background: var(--orange);
+        }
+        .portfolio-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+        }
+        .portfolio-tile {
+            background: #fff;
+            border-radius: var(--radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            overflow: hidden;
+            cursor: pointer;
+            transition: box-shadow 0.2s;
+            text-align: center;
+            padding-bottom: 1rem;
+        }
+        .portfolio-tile img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: var(--radius) var(--radius) 0 0;
+        }
+        .portfolio-tile h4 {
+            margin: 0.8rem 0 0.2rem 0;
+            font-size: 1.1rem;
+            color: var(--navy);
+        }
+        .portfolio-tile span {
+            color: var(--orange);
+            font-size: 0.95rem;
+        }
+        /* Services */
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+        .service-card {
+            background: #fff;
+            border-radius: var(--radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            padding: 1.5rem;
+            text-align: center;
+            transition: box-shadow 0.2s;
+        }
+        .service-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        }
+        .service-card h3 {
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+        .service-card p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        .service-card button {
+            background: var(--orange);
+            color: #fff;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-weight: 700;
+            transition: background 0.2s;
+        }
+        .service-card button:hover {
+            background: #e65c00;
+        }
+        /* About */
+        .about-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .about-photo {
+            flex: 0 0 180px;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .about-details {
+            flex: 1;
+            min-width: 220px;
+        }
+        .skills-list {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        .skill {
+            background: var(--navy);
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius);
+            font-weight: 700;
+            font-size: 0.98rem;
+            margin-bottom: 0.5rem;
+        }
+        /* Testimonials Page */
+        .testimonials-page {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        /* Contact */
+        .contact-section {
+            background: #fff;
+            border-radius: var(--radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            padding: 2rem;
+            max-width: 500px;
+            margin: 2rem auto;
+            text-align: center;
+        }
+        .contact-section form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .contact-section input,
+        .contact-section textarea {
+            padding: 0.7rem;
+            border-radius: var(--radius);
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        .contact-section button {
+            background: var(--navy);
+            color: #fff;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .contact-section button:hover {
+            background: var(--orange);
+        }
+        .social-icons {
+            display: flex;
+            gap: 1.2rem;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+        }
+        .social-icons a {
+            color: var(--navy);
+            font-size: 1.7rem;
+            transition: color 0.2s;
+        }
+        .social-icons a:hover {
+            color: var(--orange);
+        }
+        .note {
+            color: var(--navy);
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+        footer {
+            background: var(--navy);
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+            font-size: 0.98rem;
+        }
+        @media (max-width: 700px) {
+            .about-section {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+    <!-- Font Awesome for social icons -->
+    <script src="https://kit.fontawesome.com/0b7e7e2e6b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h2>Visual Masterpieces</h2>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Home -->
+    <section id="home">
+        <div class="hero">
+            <h1>Transforming Ideas into Visual Masterpieces</h1>
+            <p>Modern graphic design for brands that want to stand out.</p>
+            <button onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">View Portfolio</button>
+        </div>
+        <div class="intro">
+            <p>Welcome! I help businesses and entrepreneurs elevate their brands with creative, strategic design. From logos to digital experiences, let's make your vision unforgettable.</p>
+        </div>
+        <div class="featured-projects">
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Branding Project">
+                <h4>Branding: OrangeTech</h4>
+                <p>Complete brand identity for a tech startup.</p>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Logo Project">
+                <h4>Logo: MountainPeak</h4>
+                <p>Minimalist logo for an outdoor brand.</p>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="UI/UX Project">
+                <h4>UI/UX: AppFlow</h4>
+                <p>Mobile app interface for productivity.</p>
+            </div>
+        </div>
+        <div class="testimonials">
+            <div class="testimonial">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client Photo">
+                <div class="testimonial-details">
+                    <strong>Jane Smith</strong><br>
+                    <span>CEO, OrangeTech</span>
+                    <p>"Absolutely thrilled with our new brand identity. Professional, creative, and timely!"</p>
+                </div>
+            </div>
+            <div class="testimonial">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client Photo">
+                <div class="testimonial-details">
+                    <strong>Mike Lee</strong><br>
+                    <span>Founder, MountainPeak</span>
+                    <p>"The logo design exceeded expectations. Highly recommend for any design needs."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio">
+        <h2 style="text-align:center;color:var(--navy);margin-bottom:1rem;">Portfolio</h2>
+        <div class="portfolio-filters">
+            <button class="active" onclick="filterPortfolio('all')">All</button>
+            <button onclick="filterPortfolio('logo')">Logo</button>
+            <button onclick="filterPortfolio('branding')">Branding</button>
+            <button onclick="filterPortfolio('social')">Social Media</button>
+            <button onclick="filterPortfolio('uiux')">UI/UX</button>
+        </div>
+        <div class="portfolio-gallery" id="portfolioGallery">
+            <div class="portfolio-tile" data-category="logo" onclick="openCaseStudy('logo1')">
+                <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Logo">
+                <h4>MountainPeak Logo</h4>
+                <span>Logo</span>
+            </div>
+            <div class="portfolio-tile" data-category="branding" onclick="openCaseStudy('branding1')">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Branding">
+                <h4>OrangeTech Branding</h4>
+                <span>Branding</span>
+            </div>
+            <div class="portfolio-tile" data-category="social" onclick="openCaseStudy('social1')">
+                <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Social Media">
+                <h4>Summer Campaign</h4>
+                <span>Social Media</span>
+            </div>
+            <div class="portfolio-tile" data-category="uiux" onclick="openCaseStudy('uiux1')">
+                <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="UI/UX">
+                <h4>AppFlow UI</h4>
+                <span>UI/UX</span>
+            </div>
+            <!-- Add more tiles as needed -->
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+        <h2 style="text-align:center;color:var(--navy);margin-bottom:1rem;">Services</h2>
+        <div class="services-list">
+            <div class="service-card">
+                <h3>Logo & Brand Identity</h3>
+                <p>Custom logos and cohesive brand systems that make your business memorable.</p>
+                <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
+            </div>
+            <div class="service-card">
+                <h3>Social Media Graphics</h3>
+                <p>Eye-catching visuals for Instagram, Facebook, LinkedIn, and more to boost engagement.</p>
+                <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
+            </div>
+            <div class="service-card">
+                <h3>Web & App UI Design</h3>
+                <p>Modern, user-friendly interfaces for websites and mobile apps that convert.</p>
+                <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
+            </div>
+            <div class="service-card">
+                <h3>Print Design</h3>
+                <p>Brochures, flyers, business cards, and more—beautifully crafted for print.</p>
+                <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <h2 style="text-align:center;color:var(--navy);margin-bottom:1rem;">About</h2>
+        <div class="about-section">
+            <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?auto=format&fit=crop&w=400&q=80" alt="Designer Photo" class="about-photo">
+            <div class="about-details">
+                <h3 style="color:var(--orange);margin-bottom:0.5rem;">My Story</h3>
+                <p>I'm Alex, a passionate graphic designer with 8+ years of experience helping brands tell their stories visually. My philosophy is simple: design should be strategic, beautiful, and impactful. I believe in collaboration, creativity, and always pushing boundaries.</p>
+                <h4 style="color:var(--navy);margin-top:1rem;">Skills & Software</h4>
+                <div class="skills-list">
+                    <div class="skill">Photoshop</div>
+                    <div class="skill">Illustrator</div>
+                    <div class="skill">Figma</div>
+                    <div class="skill">InDesign</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Page -->
+    <section id="testimonials">
+        <h2 style="text-align:center;color:var(--navy);margin-bottom:1rem;">Testimonials</h2>
+        <div class="testimonials-page">
+            <div class="testimonial">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client Photo">
+                <div class="testimonial-details">
+                    <strong>Jane Smith</strong><br>
+                    <span>CEO, OrangeTech</span>
+                    <p>"Absolutely thrilled with our new brand identity. Professional, creative, and timely!"</p>
+                </div>
+            </div>
+            <div class="testimonial">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client Photo">
+                <div class="testimonial-details">
+                    <strong>Mike Lee</strong><br>
+                    <span>Founder, MountainPeak</span>
+                    <p>"The logo design exceeded expectations. Highly recommend for any design needs."</p>
+                </div>
+            </div>
+            <div class="testimonial">
+                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Client Photo">
+                <div class="testimonial-details">
+                    <strong>Samuel Green</strong><br>
+                    <span>Product Manager, AppFlow</span>
+                    <p>"Alex delivered a stunning UI for our app. The process was smooth and results outstanding."</p>
+                </div>
+            </div>
+            <!-- Add more testimonials as needed -->
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2 style="text-align:center;color:var(--navy);margin-bottom:1rem;">Contact</h2>
+        <div class="contact-section">
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea rows="4" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+            <div>
+                <p>Email: <a href="mailto:alex@visualmasterpieces.com" style="color:var(--navy);font-weight:700;">alex@visualmasterpieces.com</a></p>
+                <div class="social-icons">
+                    <a href="https://instagram.com/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://behance.net/" target="_blank" title="Behance"><i class="fab fa-behance"></i></a>
+                    <a href="https://linkedin.com/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <div class="note">Serving clients worldwide</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2024 Visual Masterpieces. All rights reserved.
+    </footer>
+
+    <script>
+        // Portfolio filter logic
+        function filterPortfolio(category) {
+            const tiles = document.querySelectorAll('.portfolio-tile');
+            document.querySelectorAll('.portfolio-filters button').forEach(btn => btn.classList.remove('active'));
+            document.querySelector('.portfolio-filters button[onclick*="' + category + '"]').classList.add('active');
+            tiles.forEach(tile => {
+                if (category === 'all' || tile.dataset.category === category) {
+                    tile.style.display = '';
+                } else {
+                    tile.style.display = 'none';
+                }
+            });
+        }
+        // Dummy case study modal
+        function openCaseStudy(id) {
+            alert('Case study page for: ' + id + ' (implement modal or new page)');
+        }
+        // Contact form dummy submit
+        document.querySelector('.contact-section form').addEventListener('submit', function(e){
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
