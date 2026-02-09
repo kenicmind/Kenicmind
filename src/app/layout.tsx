@@ -18,8 +18,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Next.js Boilerplate",
-  description: "Production-ready Next.js boilerplate with TypeScript, Tailwind CSS, and Radix UI",
+  title: "Kenicmind Concept | Premium African Graphic Design Studio",
+  description: "Strategic brand design studio creating intentional, purpose-driven creative work for African businesses and international brands seeking authentic African creative talent.",
+  keywords: ["graphic design", "branding", "logo design", "African design", "creative studio", "brand identity"],
+  openGraph: {
+    title: "Kenicmind Concept | Premium African Graphic Design Studio",
+    description: "Strategic brand design studio creating intentional, purpose-driven creative work.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -38,9 +44,10 @@ export default function RootLayout({
         <QueryProvider>
           <ThemeProvider
             attribute="class"
-            defaultTheme="light"
+            defaultTheme="dark"
             enableSystem
             disableTransitionOnChange
+            forcedTheme="dark"
           >
             <TooltipProvider>
               {children}
